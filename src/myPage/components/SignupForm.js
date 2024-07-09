@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import FormInput from '../components/FormInput';
 import FormSelect from '../components/FormSelect';
-import '../styles.css';
+import { useNavigate } from 'react-router-dom';
+import './styles.css';
 import axios from 'axios';
 
 const SignupForm = () => {
+  // 회원가입 성공 시 라우팅
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -58,7 +62,7 @@ const SignupForm = () => {
       console.log('폼 유효성 검사 실패'); // 디버깅을 위한 콘솔 로그
       return;
     }
-
+    
     try {
       const { name, email, password, gender, height, weight, age, interest } = formData;
       const response = await axios.post('http://localhost:3001/auth/register', {
@@ -66,6 +70,7 @@ const SignupForm = () => {
       });
       console.log('회원가입 성공!', formData);
       console.log(response.data);
+      navigate(`/myPage`);
     } catch (error) {
       console.error('Error 회원가입 실패', error);
     }

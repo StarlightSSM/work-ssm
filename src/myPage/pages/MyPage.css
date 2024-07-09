@@ -17,12 +17,12 @@ li {
 }
 
 .Logo {
-    position: relative; /* Adjust positioning to be relative */
+    position: inherit; /* Adjust positioning to be relative */
 }
 
 .imgLogo {
     width: 50px; /* Adjust the width to fit well within the reduced height nav */
     height: auto; /* Maintain aspect ratio */
-    transform: scale(1.5);
+    transform: scale(1.2);
     margin-left: 20px;
 }

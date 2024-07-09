@@ -42,9 +42,9 @@ const Filter = styled.div`
 const DeleteAllButton = styled.button`
   position: inherit;
   font-size: 0.7rem;
-  margin-left: 34%;
+  margin-left: 28%;
   margin-right: 3%;
-  width: 70px;
+  width: 90px;
 `;
 
 const DeleteButton = styled.button`
