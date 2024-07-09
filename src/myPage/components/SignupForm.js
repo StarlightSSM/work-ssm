@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import FormInput from '../components/FormInput';
 import FormSelect from '../components/FormSelect';
 import '../styles.css';
-
-// 회원가입 후 데이터베이스 연동을 위한 라이브러리 가져오기
-import axios from "axios";
-import { height } from '@mui/system';
+import axios from 'axios';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -52,27 +49,25 @@ const SignupForm = () => {
       }));
     }
   };
-  
+
   const handleSignup = async (e) => {
     e.preventDefault();
+    console.log('회원가입 버튼이 클릭되었습니다.'); // 디버깅을 위한 콘솔 로그
+
+    if (Object.values(errors).some(error => error)) {
+      console.log('폼 유효성 검사 실패'); // 디버깅을 위한 콘솔 로그
+      return;
+    }
+
     try {
-      if (Object.values(errors).some(error => error)) {
-        return;
-      }
+      const { name, email, password, gender, height, weight, age, interest } = formData;
       const response = await axios.post('http://localhost:3001/auth/register', {
-        username,
-        email,
-        password,
-        gender,
-        height,
-        weight,
-        age,
-        interest
+        name, email, password, gender, height, weight, age, interest
       });
       console.log('회원가입 성공!', formData);
       console.log(response.data);
     } catch (error) {
-      console.error("Error 회원가입 실패");
+      console.error('Error 회원가입 실패', error);
     }
   };
 
