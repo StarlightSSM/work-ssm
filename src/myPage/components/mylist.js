@@ -71,7 +71,7 @@ const CustomTablePagination = styled(TablePagination)`
     margin-left: 10px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
     .tablePagination-toolbar {
       flex-direction: row;
       align-items: center;
