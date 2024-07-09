@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../components/styles.css';
 
 const Login = () => {
@@ -6,6 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const navigate = useNavigate();
 
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
@@ -22,14 +25,24 @@ const Login = () => {
     setPasswordError(passwordRegex.test(value) ? '' : '비밀번호는 최소 8자와 영문, 숫자, 특수문자를 포함합니다.');
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     if (emailError || passwordError) {
       return;
     }
 
-    console.log('로그인 성공!', { email, password });
+    try {
+      const response = await axios.post('http://localhost:3001/auth/login', {
+        email,
+        password
+      });
+      console.log('로그인 성공!', { email, password });
+      console.log(response.data);
+      navigate(`/myPage`);
+    } catch (error) {
+      console.error('Error 로그인 실패', error);
+    }
   };
 
   return (

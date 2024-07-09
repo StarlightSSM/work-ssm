@@ -88,7 +88,7 @@ li {
 .update {
     position: inherit;
     font-weight: 600;
-    margin-left: 86%;
+    margin-left: 84%;
     margin-top: 22%;
     border: none;
     border-radius: 5px;
@@ -105,7 +105,7 @@ li {
 .cancel {
     position: inherit;
     font-weight: 600;
-    margin-left: 76%;
+    margin-left: 72%;
     margin-top: 22%;
     border: none;
     border-radius: 5px;
@@ -121,12 +121,13 @@ li {
 
 .imgUpload {
     position: inherit;
+    font-weight: 600;
     border: none;
     border-radius: 5px;
     background-color: white;
     color: #007FFF;
     margin-top: 23%;
-    margin-left: 7%;
+    margin-left: 6%;
     padding: 4px 14px 4px 14px;
 }
 
