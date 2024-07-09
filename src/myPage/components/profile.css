@@ -1,0 +1,73 @@
+.profile {
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 19%;
+    width: 61%;
+    padding-bottom: 15%;
+    background-color: #8dc6ff;
+}
+
+.profile_img {
+    background-image: url(../img/cute.jpg);
+    position: inherit;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    width: 180px;
+    height: 180px;
+    border-radius: 200px;
+    margin-top: 25px;
+    margin-left: 25px;
+    object-fit: fill;
+}
+
+.nickname {
+    position: inherit;
+    margin-left: 25%;
+    font-size: 1rem;
+}
+
+.challengeCompelete {
+    position: inherit;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.compeletedCount {
+    position: inherit;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+.intro {
+    text-align: left;
+    background-color: white;
+    border: 1px solid #007FFF;
+    border-radius: 5px;
+    position: inherit;
+    margin-left: 25%;
+    margin-top: 8%;
+    padding-left: 13%;
+    padding-top: 4%;
+    padding-right: 23%;
+    padding-bottom: 4%;
+}
+
+.update {
+    position: inherit;
+    font-weight: 600;
+    margin-left: 88%;
+    margin-top: 20%;
+    border: none;
+    border-radius: 5px;
+    background-color: #007FFF;
+    color: white;
+    padding: 5px 15px 5px 15px;
+}
+
+.update:hover {
+    color: #007FFF;
+    background-color: white;
+}

@@ -1,0 +1,28 @@
+.myPage {
+    position: relative;
+}
+
+.topNav {
+    background-color: #007FFF;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    padding: 5px; /* Reduce padding to half */
+    height: 59px; /* Explicitly set the height if needed */
+}
+
+li {
+    margin-left: 10px;
+    list-style: none;
+}
+
+.Logo {
+    position: relative; /* Adjust positioning to be relative */
+}
+
+.imgLogo {
+    width: 50px; /* Adjust the width to fit well within the reduced height nav */
+    height: auto; /* Maintain aspect ratio */
+    transform: scale(1.5);
+    margin-left: 20px;
+}

@@ -1,0 +1,137 @@
+.myPage {
+    position: relative;
+}
+
+.topNav {
+    background-color: #007FFF;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    padding: 5px; /* Reduce padding to half */
+    height: 59px; /* Explicitly set the height if needed */
+}
+
+li {
+    margin-left: 10px;
+    list-style: none;
+}
+
+.Logo {
+    position: relative; /* Adjust positioning to be relative */
+}
+
+.imgLogo {
+    width: 50px; /* Adjust the width to fit well within the reduced height nav */
+    height: auto; /* Maintain aspect ratio */
+    transform: scale(1.5);
+    margin-left: 20px;
+}
+
+/* 프로필 영역 */
+.profile {
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 19%;
+    width: 61%;
+    padding-bottom: 17%;
+    background-color: #8dc6ff;
+}
+
+.profile_img {
+    background-image: url(../img/cute.jpg);
+    position: inherit;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    width: 180px;
+    height: 180px;
+    border-radius: 200px;
+    margin-top: 25px;
+    margin-left: 25px;
+    object-fit: fill;
+}
+
+.nickname {
+    position: inherit;
+    margin-left: 25%;
+    font-size: 1rem;
+}
+
+.challengeCompelete {
+    position: inherit;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.compeletedCount {
+    position: inherit;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+.intro {
+    text-align: left;
+    font-size: 0.9rem;
+    background-color: white;
+    border: 1px solid #007FFF;
+    border-radius: 5px;
+    position: inherit;
+    padding-left: 5px;
+    padding-top: 5px;
+    margin-left: 25%;
+    margin-top: 8%;
+    padding-right: 5px;
+}
+
+.update {
+    position: inherit;
+    font-weight: 600;
+    margin-left: 86%;
+    margin-top: 22%;
+    border: none;
+    border-radius: 5px;
+    background-color: #007FFF;
+    color: white;
+    padding: 5px 18px 5px 18px;
+}
+
+.update:hover {
+    color: #007FFF;
+    background-color: white;
+}
+
+.cancel {
+    position: inherit;
+    font-weight: 600;
+    margin-left: 76%;
+    margin-top: 22%;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #007FFF;
+    padding: 5px 15px 5px 15px;
+}
+
+.cancel:hover {
+    color: white;
+    background-color: #007FFF;
+}
+
+.imgUpload {
+    position: inherit;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #007FFF;
+    margin-top: 23%;
+    margin-left: 7%;
+    padding: 4px 14px 4px 14px;
+}
+
+.imgUpload:hover {
+    color: white;
+    background-color: #007FFF;
+}
+
