@@ -1,0 +1,8 @@
+.ExerciseSet{
+    display: flex;
+    flex-direction: column;
+}
+.ExerciseSet-content{
+    display: flex;
+    flex-direction: column;
+}
