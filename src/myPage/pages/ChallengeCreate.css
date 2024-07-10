@@ -1,0 +1,26 @@
+.ChallengeCreate{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.ChallengeSearch{
+    width: 400px;
+}
+.ChallengeCreate-Form{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: center;
+}
+#ChallengeCreate-Name{
+    width: 939px;
+    height: 20px;
+}
+#ChallengeCreate-content{
+    width: 939px;
+    height: 80px;
+}
+#targetFrequency{
+    width: 80px;
+    height: 30px;
+}

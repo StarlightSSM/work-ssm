@@ -1,0 +1,38 @@
+.Challenge{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    gap: 10px;
+    
+    align-items: center;
+}
+.Challenge-Langking{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.Challenge-List{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.Challenge-List-Right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.ChallengeSearch{
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+.goChallengeCreate{
+    background: none;
+    border: none;
+}
+
