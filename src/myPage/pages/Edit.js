@@ -17,11 +17,15 @@ export default function Edit() {
         navigate(`/edit`);
     }
 
+    const goHome = () => {
+        navigate(`/`);
+    }
+
     return (
             <div className="myPage">
                 <header>
                     <nav className="topNav">
-                        <li className="Logo">
+                        <li className="Logo" onClick={goHome}>
                             <img className="imgLogo" src={require('../img/MainLogo.png')} alt="Logo" />
                         </li>
                         <li>

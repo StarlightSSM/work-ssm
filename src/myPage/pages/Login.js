@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../components/styles.css';
+import MyTabs from "../components/myTabs";
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  
   const navigate = useNavigate();
-
+  
+  const goHome = () => {
+    navigate(`/`);
+  }
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
 
@@ -46,7 +51,16 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div>
+      <nav className="topNav">
+        <li className="Logo" onClick={goHome}>
+          <img className="imgLogo" src={require('../img/MainLogo.png')} alt="Logo" />
+        </li>
+        <li>
+          <MyTabs />
+        </li>
+      </nav>
+      <div className="container">
       <h2>로그인</h2>
       <form onSubmit={handleLogin}>
         <div className="form-group">
@@ -71,6 +85,7 @@ const Login = () => {
         </div>
         <button type="submit">로그인</button>
       </form>
+    </div>
     </div>
   );
 };

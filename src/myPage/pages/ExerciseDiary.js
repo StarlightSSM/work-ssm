@@ -14,10 +14,10 @@ function ExerciseDiary () {
     };
 
     const selectedDiary = diaryEntries[value.toDateString()] ||'';
+
     return(
         <div>
             <div>나의 운동기록 매일쓰기</div>
-
             <Calendar onChange={onChange} value={value} />
             <div>
                 <h3>선택된 날짜: {value.toDateString()}</h3>

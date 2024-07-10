@@ -3,6 +3,7 @@ import { useContext } from "react";
 import LangkingList from "../components/LangkingList";
 import ChallengeItem from "../components/ChallengeItem";
 import { ChallengeStateContext } from "../App";
+import MyTabs from '../components/myTabs';
 import "./Challenge.css";
 
 function Challenge(){
@@ -12,7 +13,16 @@ function Challenge(){
         navigate('/challengecreate',{replace:true});
     }
     return(
-        <div className="Challenge">
+        <div>
+            <nav className="topNav">
+                <li className="Logo">
+                    <img className="imgLogo" src={require('../img/MainLogo.png')} alt="Logo" />
+                </li>
+                <li>
+                    <MyTabs />
+                </li>
+            </nav>
+            <div className="Challenge">
             <div className="Challenge-Langking">
                 <div>챌린지 랭킹</div>
                 <LangkingList/>
@@ -28,7 +38,7 @@ function Challenge(){
             ))}
 
             </div>
-
+        </div>
         </div>
     )
 }
