@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
+import "./ExerciseDiary.css";
 
 function ExerciseDiary () {
     const [value, onChange] = useState(new Date()); //초깃값은 현재 날짜
