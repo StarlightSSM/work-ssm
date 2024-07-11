@@ -1,3 +1,9 @@
+## 부트캠프 파이널 프로젝트 다같이 작업한거 합치는 중
+### 수정하거나 삭제하면 안됨...!! 그러면 나 울거임...🥲🥲🥲🥲
+
+## 리액트, 자바스크립트, CSS가 주요 개발 언어
+## nodejs는 보안상 이슈로 private처리함.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
