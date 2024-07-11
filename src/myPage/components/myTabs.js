@@ -24,7 +24,7 @@ function MyTabs() {
       <TabsContainer>
         <TabsList>
           <Tab value="/bests/:id">BEST</Tab>
-          <Tab value="/community">커뮤니티</Tab>
+          <Tab value="/communities">커뮤니티</Tab>
           <Tab value="/challenge">챌린지</Tab>
         </TabsList>
         <MyInfoTabsList>

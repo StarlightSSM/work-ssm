@@ -1,0 +1,18 @@
+.community-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .community-list li {
+    margin: 10px 0;
+  }
+  
+  .community-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .community-list a:hover {
+    text-decoration: underline;
+  }  

@@ -1,0 +1,24 @@
+.new-comment-form {
+    margin: 20px 0;
+  }
+  
+  .new-comment-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .new-comment-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .new-comment-form button:hover {
+    background-color: #0056b3;
+  }  
