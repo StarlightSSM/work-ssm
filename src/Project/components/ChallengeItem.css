@@ -1,20 +1,17 @@
-
 .ChallengeItem{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-bottom: 10px;
-    background-color: rgb(206, 206, 206);
-    width: 600px;
-    height: 60px;
-    border-radius: 100px;
+    width: 200px;
+    height: 400px;
+    border-radius: 8px;
     align-items: center;
+}
+.ChallengeItem-img img{
+    width: 200px;
+    height:200px;
 }
 .challengeItem-name{
     padding-left: 30px;
-}
-.challengeItem-participant{
-    margin-right: 40px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 100px;
-    padding: 2px 8px;
 }

@@ -22,6 +22,12 @@
 .ChallengeTitle-name{
     font-size: 36px;
 }
+
 .ChallengeTitle-count{
     margin-top: 20px;
+}
+
+.challengeDetail-img {
+    width: 400px;
+    height: 400px;
 }

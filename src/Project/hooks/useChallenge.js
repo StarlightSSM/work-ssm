@@ -1,21 +1,23 @@
 import { useContext,useState,useEffect } from "react";
-import { ChallengeStateContext } from "../App";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function useChallenge(id){
-    const data = useContext(ChallengeStateContext);
     const [challenge, setChallenge] = useState(null);
-    const navigate = useNavigate();
 
     useEffect(()=>{
-        const matchChallenge = data.find((it) => String(it.id) === String(id));
-        if(matchChallenge) {
-            setChallenge(matchChallenge);
-        } else {
-            alert("챌린지가 존재하지 않습니다");
-            navigate("/",{replace:true});
-        }
-    },[id,data,navigate]);
+         const fetchChallenge = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/challenges/${id}`);
+                setChallenge(response.data); // 새로운 챌린지 데이터로 상태 업데이트
+            } catch (error) {
+                console.error("Failed to fetch challenge:", error);
+                setChallenge(null); 
+            }
+        };
+        fetchChallenge(); // useEffect가 실행될 때 fetchChallenge 함수를 호출하여 데이터를 가져옴
+    }, [id,challenge]); // id가 변할 때마다 useEffect가 실행되어 새로운 챌린지 데이터를 가져옴
+
     return challenge;
+    
 };
 export default useChallenge;
