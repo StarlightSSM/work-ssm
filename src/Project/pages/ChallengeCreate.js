@@ -6,14 +6,19 @@ import MyTabs from "../components/myTabs";  // Ensure the path is correct
 import "./ChallengeCreate.css";
 
 function ChallengeCreate() {
-    const { onCreate } = useContext(ChallengeDispatchContext);
+    const {addChallenge} = useContext(ChallengeDispatchContext);
     const navigate = useNavigate();
 
-    const onSubmit = (data) => {
-        const { challengename, description, targetDays, participantCount } = data;
-        onCreate(challengename, description, targetDays, participantCount);
-        navigate("/challenge", { replace: true });
-    };
+    const onSubmit = async(formData) => { //ChallengeEditor에서 넘어온 새로 생성한 챌린지 데이터를 서버로 전송
+        try {
+          await addChallenge(formData);
+          alert('챌린지 등록이 완료되었습니다');
+          navigate('/challenge', { replace: true });
+        } catch (error) {
+          console.error('Failed to create challenge:', error);
+          alert('챌린지 생성에 실패했습니다. 나중에 다시 시도해주세요.');
+        }
+      };
 
     return (
         <div className="ChallengeCreate">
@@ -30,5 +35,4 @@ function ChallengeCreate() {
         </div>
     );
 }
-
 export default ChallengeCreate;
