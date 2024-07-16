@@ -171,6 +171,23 @@ const TableCell = styled.td`
   border: 1px solid var(--border-color);
   text-align: left;
   padding: 8px;
+
+  &.number {
+    width: 15%;
+  }
+
+  &.title {
+    width: 55%;
+  }
+
+  &.date {
+    width: 15%;
+  }
+
+  &.delete {
+    width: 15%;
+    text-align: center;
+  }
 `;
 
 const TableHeaderCell = styled.th`
@@ -178,8 +195,22 @@ const TableHeaderCell = styled.th`
   text-align: left;
   padding: 8px;
 
+  &.number {
+    width: 15%;
+  }
+
   &.title-header {
+    width: 55%;
     font-size: 0.875rem; /* Set the font size for the "제목" header */
+  }
+
+  &.date {
+    width: 15%;
+  }
+
+  &.delete {
+    width: 15%;
+    text-align: center;
   }
 `;
 
