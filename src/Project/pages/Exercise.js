@@ -46,4 +46,3 @@ function Exercise({goal}){
     )
 }
 export default Exercise;
-

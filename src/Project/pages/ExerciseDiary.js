@@ -43,4 +43,3 @@ function ExerciseDiary () {
     )
 }
 export default ExerciseDiary;
-

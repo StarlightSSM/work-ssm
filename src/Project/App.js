@@ -3,10 +3,13 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
 
 import './App.css';
+
 import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
+
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+
 import Challenge from "./pages/Challenge";
 import Home from "./pages/Home";
 import ChallengeCreate from "./pages/ChallengeCreate";
@@ -14,34 +17,44 @@ import ChallengeDetail from "./pages/ChallengeDetail";
 import Exercise from "./pages/Exercise";
 import ExerciseDiary from "./pages/ExerciseDiary";
 import ExerciseSet from "./pages/ExerciseSet";
+
 import CommunityList from './pages/CommunityList';
 import Community from './pages/Community';
 import PostDetail from './pages/PostDetail';
 import NewPostPage from './pages/NewPostPage';
 
+// 챌린지 Context 생성
+export const ChallengeStateContext = React.createContext();
+export const ChallengeDispatchContext = React.createContext();
+
+// 리듀서 함수 정의
 function reducer(state,action) {
   switch(action.type){
     case "INIT_CHALLENGE": {
       return action.data;
     }
     case "CREATE_CHALLENGE": {
-      return [ action.data,...state, ];
+      return [ action.data,...state ];
     }
-    case "UPDATE_CHALLENG": {
+    case "UPDATE_CHALLENGE": {
       return state.map((it) =>
         String(it.challenge_id)===String(action.data.challenge_id) ? {...action.data}:it
       )
     }
     case "DELETE_CHALLENGE": {
-      return state.filter((it) => String(it.id) !== String(action.targetId));
+      return state.filter((it) => String(it.id) !== String(action.id));
+    }
+    case "JOIN_CHALLENGE": {
+      return state.map((it) =>
+        it.challenge_id === parseInt(action.data.challenge_id, 10) ? { ...it, ...action.data } : it
+      );
     }
     default: {
       return state;
     }
   }
 }
-export const ChallengeStateContext = React.createContext();
-export const ChallengeDispatchContext = React.createContext();
+
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') === 'true');
   const [communities, setCommunities] = useState([
@@ -71,6 +84,7 @@ const App = () => {
       posts: []
     }
   ]);
+
   const addPost = (communityId, title, content) => {
     setCommunities(prevCommunities => {
       return prevCommunities.map(community => {
@@ -82,6 +96,7 @@ const App = () => {
       });
     });
   };
+
   const addComment = (communityId, postId, text) => {
     setCommunities(prevCommunities => {
       return prevCommunities.map(community => {
@@ -100,70 +115,34 @@ const App = () => {
     });
   }; // 게시판 부분 끝
 
-
-  const [challenges,dispatch] = useReducer(reducer, []); //챌린지
-
+  //챌린지
+  const [challenges,dispatch] = useReducer(reducer, []); 
+  
+  //서버에서 초기 데이터 가져오기
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchChallenge = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/challenges'); // 서버에서 데이터 가져오기
+        const response = await axios.get('http://localhost:5000/challenges'); 
         console.log("Fetched Data: ", response.data);
-        dispatch({
-          type: "INIT_CHALLENGE",
-          data: response.data
-        });
+        dispatch({ type: "INIT_CHALLENGE", data: response.data });
       } catch (error) {
         console.error("Failed to fetch challenges:", error);
       }
     };
-    fetchData();
+
+    fetchChallenge();
   }, []);
-  const addChallenge = async (formData) => {
-    try {
-      const response = await axios.post('http://localhost:5000/challenges', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      dispatch({ type: "CREATE_CHALLENGE", data: response.data }); //challenges에 새로 생성된 챌린지 데이터 추가
-    } catch (error) {
-      console.error("Failed to create challenge:", error);
-      alert("챌린지 생성에 실패했습니다. 나중에 다시 시도해주세요.");
-    }
-  };
-  const updateChallenge = async (id, formData) => {
-    try {
-      const response = await axios.put(`http://localhost:5000/challenges/${id}`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      dispatch({ type: "UPDATE_CHALLENGE", data: response.data });
-      console.log("Challenge updated:", response.data);
-    } catch (error) {
-      console.error("Failed to update challenge:", error);
-      alert("챌린지 업데이트에 실패했습니다. 나중에 다시 시도해주세요.");
-    }
-  }
-  const deleteChallenge = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5000/challenges/${id}`);
-      dispatch({ type: "DELETE_CHALLENGE", id });
-      console.log("Challenge deleted:", id);
-    } catch (error) {
-      console.error("Failed to delete challenge:", error);
-      alert("챌린지 삭제에 실패했습니다. 나중에 다시 시도해주세요.");
-    }
-  };
+
   //goal은 props로 전달
   const [goal, setGoal] = useState({
     height: "",
     weight: "",
     BMI: "",
   }); // 챌린지, 나의 운동 기록 부분 끝
+
     return (
         <ChallengeStateContext.Provider value={challenges}>
-        <ChallengeDispatchContext.Provider value={{addChallenge, updateChallenge, deleteChallenge}}>
+        <ChallengeDispatchContext.Provider value={dispatch}> 
           <BrowserRouter>
             <div className='App'>
               <Routes>
@@ -189,4 +168,5 @@ const App = () => {
       </ChallengeStateContext.Provider>
     )
 }
+
 export default App;

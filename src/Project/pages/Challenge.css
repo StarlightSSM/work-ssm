@@ -4,7 +4,6 @@
     flex-direction: column;
     height: 100vh;
     width: 100%;
-    gap: 10px;
     align-items: center;
 }
 .Challenge-Langking{
@@ -19,21 +18,59 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 50px;
 }
 .Challenge-List-Right{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    position: relative;
 }
 .ChallengeSearch{
-    margin-bottom: 10px;
-    width: 200px;
+    width: 400px;
+    height: 30px;
+    border-radius: 100px;
+    text-indent: 14px; /* 텍스트 시작 위치를 왼쪽으로 이동 */
+}
+
+.ChallengeSearchResults {
+    position: absolute; 
+    margin: 0px;
+    width: 400px;
+    list-style-type: none;
+    padding: 0;
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.ChallengeSearchResults li {
+    margin: 0px;
+    padding: 8px 12px;
+    cursor: pointer;
+
+}
+
+.ChallengeSearchResults li:hover {
+    color: #007FFF;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;
 }
 
 .goChallengeCreate{
-    margin-left: 15%;
     background: none;
     border: none;
+}
+
+.challenge-items-list{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .tabs {

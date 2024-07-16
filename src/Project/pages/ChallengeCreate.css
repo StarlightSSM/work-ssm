@@ -3,9 +3,7 @@
     flex-direction: column;
     gap: 10px;
 }
-.ChallengeSearch{
-    width: 400px;
-}
+
 .ChallengeCreate-Form{
     display: flex;
     flex-direction: column;
