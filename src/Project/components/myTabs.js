@@ -68,8 +68,6 @@ const Tab = styled(BaseTab)`
   width: 100%;
   padding: 8px 10px;
   margin: 6px;
-  margin-top: -5px;
-  margin-bottom: -5px;
   border: none;
   border-radius: 7px;
   display: inline-flex;
@@ -77,9 +75,6 @@ const Tab = styled(BaseTab)`
 
   &:hover {
     background-color: ${blue[400]};
-    padding: -6px;
-    margin-top: -5px;
-    margin-bottom: -5px;
   }
 
   &:focus {

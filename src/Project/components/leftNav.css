@@ -3,7 +3,6 @@
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 550;
-    border: 1px solid #007FFF;
     border-radius: 5px;
     text-align: center;
     width: 10%;
@@ -11,6 +10,9 @@
     margin-left: 5%;
     padding-bottom: 15%;
     padding-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 9px rgba(17, 0, 255, 0.1);
 }
 
 li {

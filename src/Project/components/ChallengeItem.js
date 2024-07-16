@@ -18,3 +18,5 @@ function ChallengeItem({challenge_id,challenge_img,challenge_name,participant_co
         </div>
     )
 }
+
+export default ChallengeItem;

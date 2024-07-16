@@ -22,12 +22,14 @@ const GlobalStyle = createGlobalStyle`
 // Styled components
 const Root = styled.div`
   border-radius: 12px;
-  border: 1px solid var(--border-color);
   overflow: clip;
   margin-left: 19%;
-  margin-top: 20%;
+  margin-top: 6%;
   margin-bottom: 10%;
   width: 61%;
+  background-color: white;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const Filter = styled.div`
@@ -56,7 +58,6 @@ const SmallCheckbox = styled(Checkbox)`
 `;
 
 const CustomTablePagination = styled(TablePagination)`
-
   .tablePagination-spacer {
     display: none;
   }
@@ -176,6 +177,10 @@ const TableHeaderCell = styled.th`
   border: 1px solid var(--border-color);
   text-align: left;
   padding: 8px;
+
+  &.title-header {
+    font-size: 0.875rem; /* Set the font size for the "제목" header */
+  }
 `;
 
 export default function MyList() {
@@ -234,7 +239,7 @@ export default function MyList() {
           <thead>
             <tr>
               <TableHeaderCell className="writeNum">글번호</TableHeaderCell>
-              <TableHeaderCell className="title">제목</TableHeaderCell>
+              <TableHeaderCell className="title-header">제목</TableHeaderCell>
               <TableHeaderCell>날짜</TableHeaderCell>
               <TableHeaderCell>삭제관리</TableHeaderCell>
             </tr>

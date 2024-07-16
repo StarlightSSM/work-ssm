@@ -1,8 +1,4 @@
-.myPage {
-    position: relative;
-}
-
-.topNav {
+.edit-topNav {
     background-color: #007FFF;
     width: 100%;
     display: flex;
@@ -11,128 +7,122 @@
     height: 59px; /* Explicitly set the height if needed */
 }
 
-li {
-    margin-left: 10px;
-    list-style: none;
-}
-
-.Logo {
+.edit-Logo {
     position: relative; /* Adjust positioning to be relative */
 }
 
-.imgLogo {
+.edit-imgLogo {
     width: 50px; /* Adjust the width to fit well within the reduced height nav */
     height: auto; /* Maintain aspect ratio */
     transform: scale(1.5);
     margin-left: 20px;
 }
 
-/* 프로필 영역 */
-.profile {
-    position: absolute;
-    margin-top: 2%;
-    margin-left: 19%;
-    width: 61%;
-    padding-bottom: 17%;
-    background-color: #8dc6ff;
-}
-
-.profile_img {
-    background-image: url(../img/cute.jpg);
+.edit-profile {
     position: inherit;
-    text-align: center;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    align-content: center;
-    background-color: white;
+    justify-content: baseline;
+    width: 60%;
+    height: 70vh;
+    margin-top: 2%;
+    margin-bottom: 8%;
+    margin-left: 20%;
+    max-width: 800px; /* Set a maximum width for the profile box */
+    padding: 20px; /* Adjust padding for better spacing */
+    background-color: white; /* Profile box background color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.uploadImg {
+    position: inherit;
+    display: inline;
+    margin-left: 2%;
+    margin-top: 35px;
+}
+
+#img {
+    margin-left: 2%;
+    display: inline;
+    margin-top: 35px;
+    margin-right: 12%;
     width: 180px;
-    height: 180px;
-    border-radius: 200px;
-    margin-top: 25px;
-    margin-left: 25px;
-    object-fit: fill;
 }
 
-.nickname {
+.edit-img-preview {
+    position: relative;
+    background-image: url(../img/cute.jpg);
+    background-color: white;
+    width: 180px; /* Adjust width */
+    height: 180px; /* Adjust height */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5%;
+    margin-left: 4%;
+}
+
+.nick {
     position: inherit;
-    margin-left: 25%;
+    left: 400px;
+    margin-bottom: 5%;
+    margin-right: 2%;
+}
+
+.edit-nickname {
+    position: inherit;
+    display: inline-flex;
     font-size: 1rem;
+    margin-right: 4%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #007FFF;
 }
 
-.challengeCompelete {
+.edit-intro {
     position: inherit;
-    margin-left: 25%;
-    margin-top: 5%;
-}
-
-.compeletedCount {
-    position: inherit;
-    margin-left: 35%;
-    margin-top: 5%;
-}
-
-.intro {
+    width: 88%;
     text-align: left;
     font-size: 0.9rem;
     background-color: white;
-    border: 1px solid #007FFF;
+    border: 4mm ridge #55dcfe;
     border-radius: 5px;
-    position: inherit;
-    padding-left: 5px;
-    padding-top: 5px;
-    margin-left: 25%;
-    margin-top: 8%;
-    padding-right: 5px;
+    padding: 5px;
+    resize: none;
+    display: flex-start;
+    margin-left: 3%;
+    margin-bottom: 2%;
 }
 
-.update {
-    position: inherit;
+.edit-update {
+    align-self: flex-end;
     font-weight: 600;
-    margin-left: 84%;
-    margin-top: 22%;
     border: none;
     border-radius: 5px;
     background-color: #007FFF;
     color: white;
-    padding: 5px 18px 5px 18px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
-.update:hover {
+.edit-update:hover {
     color: #007FFF;
     background-color: white;
 }
 
-.cancel {
-    position: inherit;
-    font-weight: 600;
-    margin-left: 72%;
-    margin-top: 22%;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    color: #007FFF;
-    padding: 5px 15px 5px 15px;
-}
-
-.cancel:hover {
-    color: white;
-    background-color: #007FFF;
-}
-
-.imgUpload {
-    position: inherit;
+.edit-cancel {
+    align-self: flex-end;
     font-weight: 600;
     border: none;
     border-radius: 5px;
     background-color: white;
     color: #007FFF;
-    margin-top: 23%;
-    margin-left: 6%;
-    padding: 4px 14px 4px 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
-.imgUpload:hover {
+.edit-cancel:hover {
     color: white;
     background-color: #007FFF;
 }
-

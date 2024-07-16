@@ -20,7 +20,7 @@ function ChallengeDetail(){
             const userId =1; //임의로 userId설정
             const challengeId = parseInt(id, 10);// useParams로 가져온 id를 정수로 변환
 
-            const response = await axios.post('http://localhost:5000/participants', {
+            const response = await axios.post('http://localhost:3001/participants', {
                 user_id: userId,
                 challenge_id: challengeId
             });
@@ -57,7 +57,7 @@ function ChallengeDetail(){
                     <div className="ChallengeTitle-name">{challenge_name}</div>
                     <div className="ChallengeTitle-count">{participant_count}명 도전중</div>
                 </div>
-                <img src={`http://localhost:5000/${challenge_img}`} alt={challenge_name} className="challengeDetail-img"/>
+                <img src={`http://localhost:3001/${challenge_img}`} alt={challenge_name} className="challengeDetail-img"/>
                 <div>{description}</div>
                 <div>달성조건 : 주 {target_days}일</div>
                 <button onClick={joinChallenge}>참여하기</button>
@@ -65,3 +65,5 @@ function ChallengeDetail(){
         </div>
     )
 }
+
+export default ChallengeDetail;

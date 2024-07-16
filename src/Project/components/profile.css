@@ -1,73 +1,139 @@
-.profile {
-    position: absolute;
-    margin-top: 2%;
-    margin-left: 19%;
-    width: 61%;
-    padding-bottom: 15%;
-    background-color: #8dc6ff;
+/* Profile container */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 20vh;
+    margin-top: 6%;
+    margin-left: 2%;
 }
 
-.profile_img {
-    background-image: url(../img/cute.jpg);
-    position: inherit;
-    text-align: center;
+/* Profile box */
+.profile {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    align-content: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
     background-color: white;
-    width: 180px;
-    height: 180px;
-    border-radius: 200px;
-    margin-top: 25px;
-    margin-left: 25px;
-    object-fit: fill;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image preview */
+.img-preview {
+    display: flex;
+    background-image: url(../img/cute.jpg);
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+#img-prev {
+    position: inherit;
+    margin-top: 10%;
+}
+
+/* Profile details */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+
+.nickname, .challengeComplete, .intro, .update {
+    margin: 5px 0;
 }
 
 .nickname {
-    position: inherit;
-    margin-left: 25%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.challengeComplete {
     font-size: 1rem;
 }
 
-.challengeCompelete {
-    position: inherit;
-    margin-left: 25%;
-    margin-top: 5%;
-}
-
-.compeletedCount {
-    position: inherit;
-    margin-left: 35%;
-    margin-top: 5%;
+.completedCount {
+    font-weight: bold;
 }
 
 .intro {
+    width: 105%;
     text-align: left;
+    font-size: 0.9rem;
     background-color: white;
     border: 1px solid #007FFF;
     border-radius: 5px;
-    position: inherit;
-    margin-left: 25%;
-    margin-top: 8%;
-    padding-left: 13%;
-    padding-top: 4%;
-    padding-right: 23%;
-    padding-bottom: 4%;
+    padding: 10px;
+    resize: none;
 }
 
 .update {
-    position: inherit;
+    align-self: flex-end;
     font-weight: 600;
-    margin-left: 88%;
-    margin-top: 20%;
     border: none;
     border-radius: 5px;
     background-color: #007FFF;
     color: white;
-    padding: 5px 15px 5px 15px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
 .update:hover {
     color: #007FFF;
     background-color: white;
+    border: 1px solid #007FFF;
+}
+
+/* Modal styles */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close {
+    align-self: flex-end;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import { useContext,useState,useEffect } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 
 function useChallenge(id){
@@ -7,7 +7,7 @@ function useChallenge(id){
     useEffect(()=>{
          const fetchChallenge = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/challenges/${id}`);
+                const response = await axios.get(`http://localhost:3001/challenges/${id}`);
                 setChallenge(response.data); // 새로운 챌린지 데이터로 상태 업데이트
             } catch (error) {
                 console.error("Failed to fetch challenge:", error);

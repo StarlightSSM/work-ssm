@@ -23,6 +23,6 @@ li {
 .imgLogo {
     width: 50px; /* Adjust the width to fit well within the reduced height nav */
     height: auto; /* Maintain aspect ratio */
-    transform: scale(1.2);
+    transform: scale(1.5);
     margin-left: 20px;
 }
