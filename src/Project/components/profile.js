@@ -1,20 +1,15 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "./profile.css";
 
-function Profile() {
-    const navigate = useNavigate();
+const Profile = ({ user_id }) => {
+    const [profile, setProfile] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImageSrc, setModalImageSrc] = useState('');
 
-    const goEdit = () => {
-        navigate(`/edit`);
-    };
-
     const handleImageClick = () => {
-        const imgSrc = document.getElementById('img-prev').src;
-        if (imgSrc) {
-            setModalImageSrc(imgSrc);
+        if (profile.profile_picture) {
+            setModalImageSrc(profile.profile_picture);
             setIsModalOpen(true);
         }
     };
@@ -24,18 +19,56 @@ function Profile() {
         setModalImageSrc('');
     };
 
+    useEffect(() => {
+        const fetchUserProfile = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3001/profile/${user_id}`);
+                const userData = response.data;
+    
+                if (userData) {
+                    setProfile(response.data);
+                } else {
+                    console.error('Received undefined data from API');
+                }
+            } catch (error) {
+                console.error('Error fetching user profile:', error);
+            }
+        };
+    
+        fetchUserProfile();
+    }, [user_id]);
+
+    // useEffect(() => {
+    //     const fetchProfile = async () => {
+    //         try {
+    //             const response = await axios.get(`http://localhost:3001/profile/${user_id}`);
+    //             setProfile(response.data);
+    //         } catch (error) {
+    //             console.error('Failed to fetch profile:', error);
+    //         }
+    //     };
+    //     fetchProfile();
+    // }, [user_id]);
+
     return (
         <div className="profile-container">
             <div className="profile">
                 <div className="img-preview" onClick={handleImageClick}>
-                    <img id="img-prev" src="https://avatars.githubusercontent.com/u/135091?v=4" hidden="true" alt=" " />
-                    <input id="img-url" type="hidden" name="profile_picture" />
+                    {profile.profile_picture && (
+                        <img id="img-prev" src={profile.profile_picture} alt="Profile" />
+                    )}
                 </div>
                 <div className="profile-details">
-                    <p className="nickname" name="nickname">kiki</p>
-                    <p className="challengeComplete">챌린지 달성: <span className="completedCount">10개</span></p>
-                    <textarea rows="3" cols="30" className="intro" name="intro" readOnly>저는 유산소 운동을 좋아하는 kiki 입니다. - 자기소개 -</textarea>
-                    <button id="edit-btn" className="update" onClick={goEdit}>프로필 수정</button>
+                    <p className="nickname" name="nickname">{profile.nickname || '닉네임 없음'}</p>
+                    <p className="challengeComplete">챌린지 달성: <span className="completedCount">{profile.achievement_count || 0} 개</span></p>
+                    <textarea
+                        rows="3"
+                        cols="30"
+                        className="intro"
+                        name="intro"
+                        readOnly
+                        value={profile.intro || '자기소개 없음'}
+                    />
                 </div>
             </div>
             {isModalOpen && (
@@ -48,6 +81,6 @@ function Profile() {
             )}
         </div>
     );
-};
+}
 
 export default Profile;
